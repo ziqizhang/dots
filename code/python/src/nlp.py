@@ -166,8 +166,9 @@ if __name__ == "__main__":
     #     print(res)
     # exit(1)
 
-    col_text=7
-    input_data_file="/home/zz/Work/chase/data/ml/ml/rm/labeled_data_all_corrected.csv"
+    col_text=1
+    input_data_file = "/home/zz/Work/dots/data/ENCASEH2020/labeled_data_all.csv"
+    #input_data_file="/home/zz/Work/chase/data/ml/ml/rm/labeled_data_all_corrected.csv"
     #input_data_file="/home/zz/Work/chase/data/ml/ml/dt/labeled_data_all_2.csv"
     #input_data_file="/home/zz/Work/chase/data/ml/ml/w/labeled_data_all.csv"
     #input_data_file="/home/zz/Work/chase/data/ml/ml/w+ws/labeled_data_all.csv"

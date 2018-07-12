@@ -89,7 +89,10 @@ def parse_model_descriptor(embedding_layers, model_descriptor:str):
                     cnns.append(mod)
 
     else: #assuming a sequential model
-        return create_sequential_model(model_descriptor)
+        model= create_sequential_model(layer_descriptors, embedding_layers=embedding_layers)
+        model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
+        model.summary()
+        return model
 
     cnns_outputs = [model.output for model in cnns]
     if len(cnns_outputs)>1:

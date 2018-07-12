@@ -59,11 +59,11 @@ def save_scores(nfold_predictions, nfold_truth,
     writer = open(filename, "a+")
     writer.write(model_descriptor+"\n")
     if nfold_predictions is not None:
-        writer.write(" N-FOLD AVERAGE :\n")
+        writer.write("N-FOLD AVERAGE :\n")
         write_scores(nfold_predictions, nfold_truth, digits, writer, instance_tags_train, accepted_ds_tags)
 
     if (heldout_predictions is not None):
-        writer.write(" HELDOUT :\n")
+        writer.write("HELDOUT :\n")
         write_scores(heldout_predictions, heldout_truth, digits, writer, instance_tags_test, accepted_ds_tags)
 
     writer.close()

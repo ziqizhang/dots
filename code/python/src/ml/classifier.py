@@ -248,7 +248,7 @@ class ClassifierClassic(object):
         ml_util.save_scores(nfold_predictions, y_train, None, None,
                             X_indexes,  # nfold index
                             None,  # heldout index
-                            model_label, task,
+                            model_descriptor, task,
                             2, outfolder,
                             instance_data_source_tags, accepted_ds_tags)
 
