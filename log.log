@@ -1,0 +1,99 @@
+cores,mem
+4
+              total        used        free      shared  buff/cache   available
+Mem:          15920        4793        3982        1214        7143        9786
+Swap:          2047           0        2047
+17
+
+>>> Start the following setting at Thu 12 Jul 16:09:00 BST 2018: 
+1
+	/home/zz/Work/chase/data/ml/ml/rm/labeled_data_all.csv /home/zz/Work/dots/output False scnn[2,3,4](conv1d=100,maxpooling1d=4)|maxpooling1d=4|flatten|dense=2-softmax|glv /home/zz/Work/data/glove.840B.300d.bin.gensim
+Reading twitter - 1grams ...
+Reading twitter - 2grams ...
+Reading twitter - 1grams ...
+loading input data from: /home/zz/Work/chase/data/ml/ml/rm/labeled_data_all.csv, exist=True
+2018-07-12 16:09:06.971922
+== Perform DNN, model: scnn[2,3,4](conv1d=100,maxpooling1d=4)|maxpooling1d=4|flatten|dense=2-softmax|glv ...
+100
+200
+300
+400
+500
+600
+700
+800
+900
+1000
+1100
+1200
+1300
+1400
+1500
+1600
+1700
+1800
+1900
+2000
+2100
+2200
+2300
+2400
+2500
+2600
+2700
+2800
+2900
+3000
+3100
+3200
+3300
+3400
+3500
+3600
+3700
+3800
+3900
+4000
+4100
+4200
+4300
+4400
+4500
+4600
+4700
+4800
+4900
+5000
+5100
+5200
+oov=354
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #   
+=================================================================
+model_1 (Model)              (None, 175, 100)          2306500   
+_________________________________________________________________
+max_pooling1d_8 (MaxPooling1 (None, 43, 100)           0         
+_________________________________________________________________
+flatten_1 (Flatten)          (None, 4300)              0         
+_________________________________________________________________
+dense_1 (Dense)              (None, 2)                 8602      
+=================================================================
+Total params: 2,315,102
+Trainable params: 729,302
+Non-trainable params: 1,585,800
+_________________________________________________________________
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #   
+=================================================================
+model_2 (Model)              (None, 175, 100)          2306500   
+_________________________________________________________________
+max_pooling1d_16 (MaxPooling (None, 43, 100)           0         
+_________________________________________________________________
+flatten_2 (Flatten)          (None, 4300)              0         
+_________________________________________________________________
+dense_2 (Dense)              (None, 2)                 8602      
+=================================================================
+Total params: 2,315,102
+Trainable params: 729,302
+Non-trainable params: 1,585,800
+_________________________________________________________________

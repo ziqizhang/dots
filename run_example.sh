@@ -1,6 +1,6 @@
 export MKL_THREADING_LAYER=GNU
 #export PYTHONPATH=/home/ziqizhang/chase/python/src
-export PYTHONPATH=/home/zz/Work/chase/python/src
+export PYTHONPATH=/home/zz/Work/dots/code/python/src
 #input=/home/zz/Work/dots/data/w/labeled_data_all.csv
 input=/home/zz/Work/chase/data/ml/ml/rm/labeled_data_all.csv
 output=/home/zz/Work/dots/output
@@ -17,6 +17,13 @@ nproc
 free -m
 
 SETTINGS=(
+#"$input $output False cnn[2,3,4](conv1d=100)|maxpooling1d=4|flatten|dense=$targets-softmax|ggl $emg_model"
+#"$input $output False cnn[2,3,4](conv1d=100)|maxpooling1d=4|flatten|dense=$targets-softmax|glv $eml_model"
+#"$input $output False cnn[2,3,4](conv1d=100)|maxpooling1d=4|flatten|dense=$targets-softmax|tw $emt_model"
+#"$input $output False scnn[2,3,4](conv1d=100,maxpooling1d=4)|maxpooling1d=4|flatten|dense=$targets-softmax|ggl $emg_model"
+"$input $output False scnn[2,3,4](conv1d=100,maxpooling1d=4)|maxpooling1d=4|flatten|dense=$targets-softmax|glv $eml_model"
+"$input $output False scnn[2,3,4](conv1d=100)|maxpooling1d=4|flatten|dense=$targets-softmax|glv $eml_model"
+#"$input $output False scnn[2,3,4](conv1d=100,maxpooling1d=4)|maxpooling1d=4|flatten|dense=$targets-softmax|tw $emt_model"
 "$input $output False lstm=100-True|gmaxpooling1d|dense=$targets-softmax|ggl $emg_model" 
 "$input $output False lstm=100-True|gmaxpooling1d|dense=$targets-softmax|glv $eml_model" 
 "$input $output False lstm=100-True|gmaxpooling1d|dense=$targets-softmax|tw $emt_model" 

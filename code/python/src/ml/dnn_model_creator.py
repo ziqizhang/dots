@@ -261,7 +261,7 @@ def create_skipped_cnn_layers(layer_descriptors, embedding_layers, cnn_ks):
             model.add(embedding_layers[0])
         else:
             concat_embedding_layers(embedding_layers, model)
-        model.add(Dropout(0.2)) #try removing this
+        #model.add(Dropout(0.2)) #try removing this
         model.add(conv_layer)
         create_sequential_model(layer_descriptors,model)
         models.append(model)

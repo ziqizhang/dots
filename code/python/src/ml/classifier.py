@@ -256,10 +256,14 @@ class ClassifierClassic(object):
 if __name__ == '__main__':
     # arg1=identifier; arg2=input data csv; arg3=outfolder, arg4 (optional) True or False to indicate
     # if scores should show for each sub-dataset (in case the dataset is mixed)
+    if (len(sys.argv)==2):
+        argv=sys.argv[1].split(" ")
+    else:
+        argv=sys.argv
     nfold = 10
-    classifier = ClassifierClassic(sys.argv[2], bool(sys.argv[3]))
+    classifier = ClassifierClassic(argv[1], bool(argv[2]))
 
-    classifier.load_data(sys.argv[1])
+    classifier.load_data(argv[0])
 
     #classifier.cross_val("svml-rm-10fold", 3, nfold)
 
@@ -273,4 +277,4 @@ if __name__ == '__main__':
     #lstm=100-False|dense=2-softmax
     #bilstm=100-False|dense=2-softmax
     classifier.cross_val_dnn("dnn-rm-10fold", 10,
-                         sys.argv[4], sys.argv[5], dnn_embedding_dim, dnn_sequence_max_length)
+                         argv[3], argv[4], dnn_embedding_dim, dnn_sequence_max_length)
