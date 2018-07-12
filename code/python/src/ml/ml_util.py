@@ -4,7 +4,11 @@ from sklearn.utils.multiclass import unique_labels
 import numpy as np
 import os
 import pandas
+import functools
 
+
+from sklearn.feature_extraction.text import CountVectorizer
+import nlp
 
 def outputFalsePredictions(pred, truth, index, model_descriptor, dataset_name, outfolder):
     subfolder = outfolder + "/errors"
@@ -177,3 +181,33 @@ def feature_scaling_min_max(feature_set):
     """
     scaler = MinMaxScaler(feature_range=(0, 1))
     return scaler.fit_transform(feature_set)
+
+
+def get_word_vocab(tweets, normalize_option):
+    word_vectorizer = CountVectorizer(
+        # vectorizer = sklearn.feature_extraction.text.CountVectorizer(
+        tokenizer=functools.partial(nlp.tokenize, stem_or_lemma=normalize_option),
+        preprocessor=nlp.preprocess,
+        ngram_range=(1, 1),
+        stop_words=nlp.stopwords,  # We do better when we keep stopwords
+        decode_error='replace',
+        max_features=50000,
+        min_df=1,
+        max_df=0.99
+    )
+
+    # logger.info("\tgenerating word vectors, {}".format(datetime.datetime.now()))
+    counts = word_vectorizer.fit_transform(tweets).toarray()
+    # logger.info("\t\t complete, dim={}, {}".format(counts.shape, datetime.datetime.now()))
+    vocab = {v: i for i, v in enumerate(word_vectorizer.get_feature_names())}
+
+    word_embedding_input = []
+    for tweet in counts:
+        tweet_vocab = []
+        for i in range(0, len(tweet)):
+            if tweet[i] != 0:
+                tweet_vocab.append(i)
+        word_embedding_input.append(tweet_vocab)
+    return word_embedding_input, vocab
+
+

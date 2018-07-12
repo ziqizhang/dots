@@ -1,3 +1,4 @@
 code/python/.idea/*
 output/scores/*
 output/models/*
+*.pyc
